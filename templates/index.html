@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <title>Weather App</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+  <div class="main">
+    <h3>Weather App</h3>
+    <form id="city-form" class="input-container">
+      <input class="city-input" placeholder="Search City" type="text" name="city">
+      <button class="search-btn" type="submit">
+        <i class="material-icons">search</i>
+      </button>
+    </form>
+
+    <section class="weather-info" style="display: none;">
+      <div class="location-data-container">
+        <div class="location">
+          <i class="material-icons">
+            location_on
+          </i>
+          <h4 class="location-txt"></h4>
+        </div>
+        <!-- Date + live time row -->
+        <div class="date-time-row">
+          <!-- JS will replace with: Today/Tomorrow/Full date -->
+          <h5 class="current-date-txt regular-txt"></h5>
+          <!-- Live time placeholder; JS fills every second -->
+          <h5 class="current-time-txt regular-txt" aria-label="current time"></h5>
+        </div>
+      </div>
+
+      <div class="weather-summary-container">
+        <img src="{{ url_for('static', filename='weather/'+weather_icon) }}" alt="{{weather.main}}" class="weather-summary-img">
+        <div class="weather-summary-info">
+          <h1 class="temp-text">{{ weather.temp_c }}°C</h1>
+          <h2 class="condition-txt regular-txt">{{ weather.main }}</h2>
+        </div>
+      </div>
+      <div class="weather-conditions-container">
+        <div class="condition-item">
+          <i class="material-icons">
+            water_drop
+          </i>
+          <div class="condition-info">
+            <h5 class="regular-txt">Humidity</h5>
+            <h5 class="humidity-value-txt"></h5>
+          </div>
+        </div>
+
+        <div class="condition-item">
+          <i class="material-icons">
+            air
+          </i>
+          <div class="condition-info">
+            <h5 class="regular-txt">Wind Speed</h5>
+            <h5 class="wind-value-txt"></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-items-container">
+        <div class="forecast-item">
+          <h5 class="forecast-item-date regular-txt">
+            <span class="fi-weekday"></span>
+            <span class="fi-date"></span>
+          </h5>
+          <img src="{{ url_for('static', filename='weather/clear.svg') }}" class="forecast-item-img">
+          <h5 class="forecast-item-temp"></h5>
+        </div>
+        <div class="forecast-item">
+          <h5 class="forecast-item-date regular-txt">
+            <span class="fi-weekday"></span>
+            <span class="fi-date"></span>
+          </h5>
+          <img src="{{ url_for('static', filename='weather/clear.svg') }}" class="forecast-item-img">
+          <h5 class="forecast-item-temp"></h5>
+        </div>
+        <div class="forecast-item">
+          <h5 class="forecast-item-date regular-txt">
+            <span class="fi-weekday"></span>
+            <span class="fi-date"></span>
+          </h5>
+          <img src="{{ url_for('static', filename='weather/clear.svg') }}" class="forecast-item-img">
+          <h5 class="forecast-item-temp"></h5>
+        </div>
+        <div class="forecast-item">
+          <h5 class="forecast-item-date regular-txt">
+            <span class="fi-weekday"></span>
+            <span class="fi-date"></span>
+          </h5>
+          <img src="{{ url_for('static', filename='weather/clear.svg') }}" class="forecast-item-img" alt="forecast icon">
+          <h5 class="forecast-item-temp"></h5>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-city section-message">
+      <img src="{{ url_for('static', filename='message/search-city.png') }}">
+      <div>
+        <h1>Search City</h1>
+        <h4 class="regular-txt">
+          Find out the weather conditions of the city
+        </h4>
+      </div>
+    </section>
+
+    <section class="not-found section-message" style="display: none;">
+      <img src="{{ url_for('static', filename='message/not-found.png') }}">
+      <h1>Not Found</h1>
+    </section>
+
+  </div>
+  
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
