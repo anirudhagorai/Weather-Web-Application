@@ -55,10 +55,10 @@ The Weather Web App allows users to search for current weather conditions such a
    ```bash
    git clone https://github.com/your-username/weather-web-app.git
 2. Navigate to the project folder:
-  cd weather-web-app
+   cd weather-web-app
 3. Install dependencies:
    pip install -r requirements.txt
 4. Run the Flask app:
    python app.py
 5. Open browser and go to:
-  http://127.0.0.1:5000/
+   http://127.0.0.1:5000/
